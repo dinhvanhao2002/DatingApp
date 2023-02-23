@@ -1,0 +1,11 @@
+<h1>
+ <!-- ở đây truyền title vào dùng 2 ngoặc-->
+ {{title}}
+</h1>
+
+<ul>
+    <li *ngFor="let user of users">
+      <!-- get id từ dữ liệu api -->
+        {{user.id}} - {{user.userName}}
+    </li>
+</ul>
