@@ -1,11 +1,7 @@
-<h1>
- <!-- ở đây truyền title vào dùng 2 ngoặc-->
- {{title}}
-</h1>
+<!-- Header nav -->
 
-<ul>
-    <li *ngFor="let user of users">
-      <!-- get id từ dữ liệu api -->
-        {{user.id}} - {{user.userName}}
-    </li>
-</ul>
+<app-nav></app-nav>
+<div class="container" style="margin-top: 100px;">
+  <app-home></app-home>
+</div>
+
