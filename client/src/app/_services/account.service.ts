@@ -17,7 +17,6 @@ export class AccountService {
 
   // contructor nhận tham chiếu đến 1 đối tượn http client
   constructor(private http:HttpClient) { }
-
   login(model:any){
     // thực hiện gửi yêu cầu đăng nhập đến API bằng pt http post
     // khi login ở component thì nó sẽ gửi yêu cầu đăng nhập đến 1 đường dẫn http... với dữ liuej modol
@@ -43,8 +42,10 @@ export class AccountService {
         return user;
       })
     )
-      
   }
+  // phương thức pipe để xử lý dữ liệu trả về từ server trc khi trả về cho client 
+
+  
 
   setCurrentUser(user: User){
     this.currentUserSource.next(user);
@@ -55,8 +56,6 @@ export class AccountService {
     localStorage.removeItem("user");
     this.currentUserSource.next(null!);  // thêm null! thì lại được
   }
-
-
 
 }
 

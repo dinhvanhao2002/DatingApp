@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {  Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { User } from '../_models/user';
 import { AccountService } from '../_services/account.service';
@@ -19,8 +21,9 @@ export class NavComponent implements OnInit {
 
 
 
-  constructor(public accountService: AccountService)
+  constructor(public accountService: AccountService, private router:Router, private toastr : ToastrService)
   {
+    // sau khi thêm roouter vào trong contructer
    
   }
 
@@ -28,14 +31,18 @@ export class NavComponent implements OnInit {
   ngOnInit():void{
     //this.currentUser$ = this.accountService.currentUser$;
   }
+  //ngOnit() là 1 vòng đời lifecycle hook trong angular
 
   login(){
     //console.log(this.model);
-    this.accountService.login(this.model).subscribe(respone =>{
-      console.log(respone);
-
+    this.accountService.login(this.model).subscribe(response =>{
+      //khi đăng nhập thành công thì muốn nó vẫn ở phần tiếp theo của đăng ký 
+      // nên cần 1 đường dẫn 
+      this.router.navigateByUrl('/members');
     }, error =>{
         console.log(error);
+        this.toastr.error(error.error);
+        
     });
     
   }
@@ -46,10 +53,11 @@ export class NavComponent implements OnInit {
 
   logout(){
     this.accountService.logout();
+    // khi mà logout thì sẽ về trang home
+    this.router.navigateByUrl('/');
   }
  
   // phương thức này đc sử dụng để đăng ký currentUser có thể quan sát đc của accountService 
-
 }
 
 // k cần pt getcurrentuser nữa vì chúng tôi đang lấy nó trực tiếp 
