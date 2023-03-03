@@ -11,7 +11,7 @@ import { AccountService } from '../_services/account.service';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-  // oninit là những interface cung cấp bởi angular cỏe , nó bảo gồm pth ngoninit đc gọi lhi component đc khởi tạo và hiện thị lần đầu tiên 
+  // oninit là những interface cung cấp bởi angular cỏe , nó bảo gồm pth ngoninit đc gọi lhi component đc khởi tạo và hiện thị lần đầu tiên
 
   model: any = {};
 
@@ -24,10 +24,10 @@ export class NavComponent implements OnInit {
   constructor(public accountService: AccountService, private router:Router, private toastr : ToastrService)
   {
     // sau khi thêm roouter vào trong contructer
-   
+
   }
 
- 
+
   ngOnInit():void{
     //this.currentUser$ = this.accountService.currentUser$;
   }
@@ -36,18 +36,13 @@ export class NavComponent implements OnInit {
   login(){
     //console.log(this.model);
     this.accountService.login(this.model).subscribe(response =>{
-      //khi đăng nhập thành công thì muốn nó vẫn ở phần tiếp theo của đăng ký 
-      // nên cần 1 đường dẫn 
+      //khi đăng nhập thành công thì muốn nó vẫn ở phần tiếp theo của đăng ký
+      // nên cần 1 đường dẫn
       this.router.navigateByUrl('/members');
-    }, error =>{
-        console.log(error);
-        this.toastr.error(error.error);
-        
     });
-    
   }
 
-  // phương thức login của 1 đối tượng accountSevice , đối số truyền vào ở đây là model 
+  // phương thức login của 1 đối tượng accountSevice , đối số truyền vào ở đây là model
   // cmp nó sẽ đăng ký nhận thông tin từ sever thông qua phươn thưc subcribe
   // biến loggedIn trong cmp đc gán là giá trị tru khi ng dùng đã đăng nhập thành công
 
@@ -56,8 +51,8 @@ export class NavComponent implements OnInit {
     // khi mà logout thì sẽ về trang home
     this.router.navigateByUrl('/');
   }
- 
-  // phương thức này đc sử dụng để đăng ký currentUser có thể quan sát đc của accountService 
+
+  // phương thức này đc sử dụng để đăng ký currentUser có thể quan sát đc của accountService
 }
 
-// k cần pt getcurrentuser nữa vì chúng tôi đang lấy nó trực tiếp 
+// k cần pt getcurrentuser nữa vì chúng tôi đang lấy nó trực tiếp

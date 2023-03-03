@@ -1,3 +1,7 @@
+import { ServerErrorComponent } from './errors/server-error/server-error.component';
+ import {  TestErrorsComponent } from './errors/test-errors/test-errors.component';
+ import { NotFoundComponent } from './errors/not-found/not-found.component';
+
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
@@ -18,15 +22,20 @@ const routes: Routes = [
       {path: 'members/:id', component: MemberDetailComponent},
       {path: 'lists', component: ListsComponent},
       {path: 'messages', component: MessagesComponent},
-      {path: '**', component: HomeComponent, pathMatch: 'full'},
+
     ]
     //khi cho canActive vào thì nó sẽ thông báo hết all
   },
-  // thường để xác định 1 root mặc định khi ngừi dùng nhập 1 url hợp lệ 
-  
+  // thường để xác định 1 root mặc định khi ngừi dùng nhập 1 url hợp lệ
+  {path: 'errors', component: TestErrorsComponent},
+  {path: 'not-found', component: NotFoundComponent},
+  {path: 'server-error', component: ServerErrorComponent},
 
-
+  {path: '**', component: HomeComponent, pathMatch: 'full'},
+  // sau đó chuyển đến liên kết nav
 ];
+
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

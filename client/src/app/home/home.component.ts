@@ -14,17 +14,16 @@ export class HomeComponent implements OnInit {
 
   }
   ngOnInit() {
-    
+
   }
 
   registerToggle() {
-    // phương thức này đc chuyển đổi đk 
+    // phương thức này đc chuyển đổi đk
 
     this.registerMode =!this.registerMode;
   }
 
 
- 
 
   cancelRegisterMode(event: boolean){
     this.registerMode = event;
@@ -33,4 +32,4 @@ export class HomeComponent implements OnInit {
 
 }
 
-// thắc mắc : khi mà tạo cmp ý nó k có cái implement onnit 
+// thắc mắc : khi mà tạo cmp ý nó k có cái implement onnit

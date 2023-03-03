@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter,Input, OnInit, Output } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { AccountService } from '../_services/account.service';
 
@@ -7,16 +7,17 @@ import { AccountService } from '../_services/account.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
+
 export class RegisterComponent  implements OnInit {
   //@Input() userFormHomeComponent: any;  // được sử dụng để chuyền dữ liệu từ cmp cha sang cmp con
   @Output() cancelRegister= new EventEmitter();
-  public model: any = {}; 
-  // vì sử dụng public tức là nó khởi tạo giá trị ban đầu của model là đối tượng rông 
- 
+  public model: any = {};
+  // vì sử dụng public tức là nó khởi tạo giá trị ban đầu của model là đối tượng rông
+
 
   constructor(private accountService:AccountService, private toastr: ToastrService) { }
   ngOnInit(): void {
-    
+
   }
 
   register(){
@@ -28,11 +29,11 @@ export class RegisterComponent  implements OnInit {
       this.toastr.error(error.error)
     })
   }
-  
+
   cancel(){
     console.log('cancelled');
     this.cancelRegister.emit(false);
-    
+
   }
 
 }

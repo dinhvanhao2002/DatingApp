@@ -1,13 +1,12 @@
 
 <!-- làm form đăng ký -->
 
-
 <form #registerForm="ngForm" (ngSubmit)="register()" autocomplete="off">
     <h2 class="text-center text-primary">Sign up</h2>
     <hr>
     <div class="form-group">
         <input type="text"
-         class="form-control" 
+         class="form-control"
          name="username"
           [(ngModel)]="model.username"
           placeholder="Username"
@@ -24,7 +23,7 @@
 
     <div class="form-group mt-2">
         <input type="password"
-         class="form-control" 
+         class="form-control"
          name="password"
           [(ngModel)]="model.password"
           placeholder="Password"
