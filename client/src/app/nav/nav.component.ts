@@ -11,14 +11,13 @@ import { AccountService } from '../_services/account.service';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-  // oninit là những interface cung cấp bởi angular cỏe , nó bảo gồm pth ngoninit đc gọi lhi component đc khởi tạo và hiện thị lần đầu tiên
+  // oninit là những interface cung cấp bởi angular cỏe , nó bảo gồm pth ngoninit đc gọi khi component đc khởi tạo và hiện thị lần đầu tiên
 
   model: any = {};
 
   // currentUser$: Observable<User> = new Observable<User>();
   //currentUser$!: Observable<User> //đc khai báo nhưng lại k có giá trị khởi tạo
   // 2 cách đều được
-
 
 
   constructor(public accountService: AccountService, private router:Router, private toastr : ToastrService)
@@ -43,7 +42,7 @@ export class NavComponent implements OnInit {
   }
 
   // phương thức login của 1 đối tượng accountSevice , đối số truyền vào ở đây là model
-  // cmp nó sẽ đăng ký nhận thông tin từ sever thông qua phươn thưc subcribe
+  // cmp nó sẽ đăng ký nhận thông tin từ sever thông qua phương thưc subcribe
   // biến loggedIn trong cmp đc gán là giá trị tru khi ng dùng đã đăng nhập thành công
 
   logout(){

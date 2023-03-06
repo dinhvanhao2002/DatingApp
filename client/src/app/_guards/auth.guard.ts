@@ -26,3 +26,6 @@ export class AuthGuard implements CanActivate {
     )
   }
 }
+
+// 1 lớp bảo vệ quyền truy cập của người dùng đối với một trang hoặc 1 tài nguyên
+

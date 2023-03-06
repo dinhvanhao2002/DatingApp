@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -9,11 +10,13 @@ import { ReplaySubject } from 'rxjs';
   providedIn: 'root'
 })
 export class AccountService {
-  baseUrl = "https://localhost:5001/api/"  // đường dẫn đến api
-  private currentUserSource = new ReplaySubject<User>(1);  // 1 ở đây nói số phiên bản của ng dùng hiện tại có 
-  currentUser$= this.currentUserSource.asObservable();
+  baseUrl = environment.apiUrl; // đường dẫn đến api
+  private currentUserSource = new ReplaySubject<User>(1);  // 1 ở đây nói số phiên bản của ng dùng hiện tại có
+  currentUser$ = this.currentUserSource.asObservable();
   // phương thức để cấu hình người dung hiện tại, currUsersource là đc khởi tạo bởi replay
-  // cho phép lắng nghe các phiên đăng nhập trc đó , `currentUser$` nó nhận lại các phiên đăng nhập 
+  // cho phép lắng nghe các phiên đăng nhập trc đó , `currentUser$` nó nhận lại các phiên đăng nhập
+
+
 
   // contructor nhận tham chiếu đến 1 đối tượn http client
   constructor(private http:HttpClient) { }
@@ -43,9 +46,9 @@ export class AccountService {
       })
     )
   }
-  // phương thức pipe để xử lý dữ liệu trả về từ server trc khi trả về cho client 
+  // phương thức pipe để xử lý dữ liệu trả về từ server trc khi trả về cho client
 
-  
+
 
   setCurrentUser(user: User){
     this.currentUserSource.next(user);
@@ -62,6 +65,7 @@ export class AccountService {
 
 
 // service này cung cấp 1 phương thưc login để gửi yêu cầu post đến đường dẫn api
+// đây là 1 dịch vụ cung cấp chứng năng liên quan đến đăng nhập và đăng ký người dùng
 
 
 

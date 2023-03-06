@@ -38,7 +38,7 @@ export class ErrorInterceptor implements HttpInterceptor {
               }
               break;
             case 401:
-              error.statusText = "Unauthorized"
+              error.statusText = "Authorized";
               this.toastr.error(error.statusText, error.status);
               break;
             case 404:
